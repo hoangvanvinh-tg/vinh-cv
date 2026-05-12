@@ -100,7 +100,13 @@ body {
     pointer-events: none;
     overflow: hidden;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(255, 241, 214, 0.22) 0%, rgba(255, 229, 166, 0.18) 32%, rgba(255, 212, 133, 0.12) 62%, rgba(255, 190, 102, 0.08) 100%);
+    background: 
+        linear-gradient(180deg, rgba(255, 241, 214, 0.26) 0%, rgba(255, 230, 166, 0.22) 30%, rgba(255, 210, 130, 0.14) 58%, rgba(255, 185, 98, 0.1) 100%),
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(0.8px);
 }
 
 .leaf {
