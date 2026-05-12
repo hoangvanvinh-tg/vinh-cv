@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của Hoàng Văn Vinh - UI/UX Designer Student">
+    <title>Hoàng Văn Vinh | UI/UX Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Falling Leaves Animation Container -->
+    <div class="leaves-container" id="leavesContainer">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Vinh</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link">Về tôi</a></li>
+                <li><a href="#projects" class="nav-link">Dự án</a></li>
+                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hoàng Văn Vinh</h1>
+            <p class="hero-role">UI/UX Designer Student</p>
+            <p class="hero-tagline">Thiết kế trải nghiệm đơn giản, hiệu quả và có cảm xúc</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Liên hệ với tôi</a>
+                <a href="#projects" class="btn btn-secondary">Xem dự án</a>
+            </div>
+        </div>
+        <div class="hero-accent"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2 class="section-title">Về tôi</h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Giáo dục</h3>
+                    <p><strong>Đại học GDU</strong></p>
+                    <p>Ngành: CNNT – Thiết kế Đồ họa Kỹ thuật số</p>
+                    <p class="about-description">Hiện tôi đang tập trung vào các dự án UI/UX design, khám phá cách kết hợp giữa thẩm mỹ và tính năng để tạo ra trải nghiệm người dùng tuyệt vời.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Định hướng sự nghiệp</h3>
+                    <p>Tôi là một nhà thiết kế giao diện người dùng đầy hoài bão, mong muốn trở thành chuyên gia UI/UX chuyên nghiệp trong tương lai.</p>
+                    <p class="about-description">Mục tiêu của tôi là tạo ra những thiết kế không chỉ đẹp mắt mà còn giải quyết những vấn đề thực tế của người dùng.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Công cụ & Kỹ năng</h3>
+                    <p><strong>Thiết kế:</strong> Figma, Adobe Photoshop, Adobe Illustrator</p>
+                    <p class="about-description">Tôi có kinh nghiệm làm việc với các công cụ thiết kế chuyên nghiệp, giúp tôi biến ý tưởng thành hiện thực.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Sở thích cá nhân</h3>
+                    <p>Ngoài thiết kế, tôi thích:</p>
+                    <ul class="interests-list">
+                        <li>🎵 Nghe nhạc</li>
+                        <li>🎮 Chơi game</li>
+                        <li>🚶 Đi bộ ngoài trời</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-container">
+            <h2 class="section-title">Dự án</h2>
+            <p class="section-subtitle">Các dự án gần đây của tôi</p>
+
+            <div class="projects-grid">
+                <!-- Project 1: Bookmark Design -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=400&fit=crop" alt="Bookmark Design Project" class="project-image" data-project="bookmark">
+                        <div class="project-overlay">
+                            <button class="btn-view-project" data-project="bookmark">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Bookmark Design</h3>
+                        <p class="project-role">Vai trò: UI/UX Designer</p>
+                        <p class="project-description">Ứng dụng bookmark được thiết kế với giao diện thân thiện, giúp người dùng dễ dàng lưu trữ và quản lý các trang web yêu thích.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: 3D Model Design -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" alt="3D Model Design Project" class="project-image" data-project="3d-model">
+                        <div class="project-overlay">
+                            <button class="btn-view-project" data-project="3d-model">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>3D Model Design</h3>
+                        <p class="project-role">Vai trò: UI/UX Designer & 3D Artist</p>
+                        <p class="project-description">Một dự án kết hợp giữa mô hình 3D và giao diện người dùng, tạo ra trải nghiệm tương tác độc đáo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content">
+            <button class="modal-nav modal-prev">&#10094;</button>
+            
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="Gallery image">
+                <p id="modalImageCaption" class="modal-caption"></p>
+            </div>
+            
+            <button class="modal-nav modal-next">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-container">
+            <h2 class="section-title">Kỹ năng & Công cụ</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Thiết kế giao diện người dùng và trải nghiệm</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Figma</h3>
+                    <p>Công cụ design và prototyping chuyên nghiệp</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📸</div>
+                    <h3>Photoshop</h3>
+                    <p>Chỉnh sửa và xử lý hình ảnh nâng cao</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">✏️</div>
+                    <h3>Illustrator</h3>
+                    <p>Thiết kế vector và đồ họa</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>Design Thinking</h3>
+                    <p>Giải quyết vấn đề thông qua thiết kế</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <h3>User Research</h3>
+                    <p>Nghiên cứu và hiểu nhu cầu người dùng</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">Liên hệ</h2>
+            <p class="section-subtitle">Hãy cùng nhau tạo ra những điều tuyệt vời</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bắt đầu cuộc trò chuyện</h3>
+                    <p>Tôi luôn sẵn sàng để thảo luận về các dự án thiết kế, cơ hội hợp tác hoặc bất kỳ câu hỏi nào bạn có.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">📧 Email:</span>
+                            <a href="mailto:hoangvanvinh8464@gmail.com">hoangvanvinh8464@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <a href="mailto:hoangvanvinh8464@gmail.com" class="btn btn-primary btn-large">Gửi email cho tôi</a>
+                    <p class="contact-note">Tôi sẽ phản hồi trong vòng 24 giờ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <p>&copy; 2026 Hoàng Văn Vinh. Thiết kế với ❤️ và niềm đam mê.</p>
+            <p class="footer-tagline">UI/UX Designer | Design Enthusiast</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
