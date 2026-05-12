@@ -100,176 +100,238 @@ body {
     pointer-events: none;
     overflow: hidden;
     z-index: 1;
-    background: 
-        linear-gradient(180deg, rgba(250, 240, 210, 0.3) 0%, rgba(255, 235, 130, 0.2) 30%, rgba(255, 200, 120, 0.15) 60%, rgba(255, 180, 100, 0.1) 100%),
-        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&crop=center');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    filter: blur(0.5px);
+    background: linear-gradient(180deg, rgba(255, 241, 214, 0.22) 0%, rgba(255, 229, 166, 0.18) 32%, rgba(255, 212, 133, 0.12) 62%, rgba(255, 190, 102, 0.08) 100%);
 }
 
 .leaf {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #FF1744 0%, #E8956F 50%, #FCEB9E 100%);
-    border-radius: 50% 0;
+    top: -120px;
+    left: var(--left, 50%);
+    width: var(--size, 22px);
+    height: calc(var(--size, 22px) * 0.8);
+    background: linear-gradient(135deg, #ffb74d 0%, #ff8f00 45%, #ff1744 100%);
+    clip-path: polygon(50% 0%, 82% 24%, 72% 100%, 50% 80%, 28% 100%, 18% 24%);
     opacity: 0.4;
-    animation: fall linear infinite;
-    box-shadow: 
-        0 0 3px rgba(255, 23, 68, 0.4),
-        0 0 6px rgba(232, 149, 111, 0.3),
-        inset -1px -1px 3px rgba(0, 0, 0, 0.1);
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+    animation: fallY var(--duration, 12s) linear infinite, leafRotate var(--duration, 12s) ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(255, 151, 0, 0.18);
+    transform: translateX(var(--scrollX, 0px)) rotate(0deg);
 }
 
 .leaf::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
-    border-radius: 50% 0;
+    inset: 18% 18% 18% 18%;
+    background: radial-gradient(circle at 40% 30%, rgba(255,255,255,0.5), transparent 55%);
+    border-radius: 50%;
 }
 
-
-.leaf:nth-child(1) {
-    left: 10%;
-    animation: fallSway1 8s linear infinite;
-    animation-delay: 0s;
-    width: 15px;
-    height: 15px;
-    background: linear-gradient(135deg, #FF1744 0%, #E8956F 100%);
-    opacity: 0.3;
+.leaf-bg {
+    opacity: 0.22;
+    filter: blur(1.1px);
 }
 
-.leaf:nth-child(2) {
-    left: 20%;
-    animation: fallSway2 10s linear infinite;
-    animation-delay: 1s;
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #E8956F 0%, #FCEB9E 100%);
-    opacity: 0.25;
+.leaf-mid {
+    opacity: 0.45;
+    filter: blur(0.3px);
 }
 
-.leaf:nth-child(3) {
-    left: 30%;
-    animation: fallSway1 9s linear infinite;
-    animation-delay: 2s;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #FF1744 0%, #FCEB9E 100%);
-    opacity: 0.35;
+.leaf-front {
+    opacity: 0.82;
+    filter: blur(0);
 }
 
-.leaf:nth-child(4) {
-    left: 40%;
-    animation: fallSway2 11s linear infinite;
-    animation-delay: 0.5s;
-    width: 16px;
-    height: 16px;
-    background: linear-gradient(135deg, #FCEB9E 0%, #E8956F 100%);
-    opacity: 0.2;
+.leaf:nth-child(odd) {
+    animation-name: fallY, leafRotate;
 }
 
-.leaf:nth-child(5) {
+.leaf:nth-child(even) {
+    animation-name: fallY, leafRotateAlt;
+}
+
+@keyframes fallY {
+    0% {
+        top: -120px;
+    }
+    100% {
+        top: 110vh;
+    }
+}
+
+@keyframes leafRotate {
+    0% {
+        transform: translateX(var(--scrollX, 0px)) rotate(-12deg);
+    }
+    50% {
+        transform: translateX(calc(var(--scrollX, 0px) + 12px)) rotate(12deg);
+    }
+    100% {
+        transform: translateX(var(--scrollX, 0px)) rotate(-12deg);
+    }
+}
+
+@keyframes leafRotateAlt {
+    0% {
+        transform: translateX(var(--scrollX, 0px)) rotate(10deg);
+    }
+    50% {
+        transform: translateX(calc(var(--scrollX, 0px) - 14px)) rotate(-10deg);
+    }
+    100% {
+        transform: translateX(var(--scrollX, 0px)) rotate(10deg);
+    }
+}
+
+/* ============================================
+   HERO LANDSCAPE & SCENE
+   ============================================ */
+
+.hero-landscape {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-landscape::before {
+    content: '';
+    position: absolute;
+    left: 45%;
+    top: 4%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 241, 214, 0.85), transparent 65%);
+    filter: blur(6px);
+}
+
+.hill {
+    position: absolute;
     left: 50%;
-    animation: fallSway1 8.5s linear infinite;
-    animation-delay: 1.5s;
-    width: 19px;
-    height: 19px;
-    background: linear-gradient(135deg, #FF1744 0%, #E8956F 50%, #FCEB9E 100%);
-    opacity: 0.4;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 40% 40%;
 }
 
-.leaf:nth-child(6) {
-    left: 60%;
-    animation: fallSway2 10.5s linear infinite;
-    animation-delay: 0s;
-    width: 17px;
-    height: 17px;
-    background: linear-gradient(135deg, #E8956F 0%, #FF1744 100%);
-    opacity: 0.28;
+.hill-back {
+    width: 150%;
+    height: 52%;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 235, 190, 0.8), rgba(238, 182, 110, 0.24) 60%, transparent 80%);
+    filter: blur(1px);
 }
 
-.leaf:nth-child(7) {
-    left: 70%;
-    animation: fallSway1 9.5s linear infinite;
-    animation-delay: 2.5s;
+.hill-mid {
+    width: 128%;
+    height: 52%;
+    bottom: 6%;
+    background: radial-gradient(circle at 50% 35%, rgba(255, 224, 165, 0.9), rgba(221, 154, 69, 0.42) 58%, transparent 76%);
+}
+
+.hill-front {
+    width: 120%;
+    height: 44%;
+    bottom: 0;
+    background: radial-gradient(circle at 45% 40%, rgba(255, 244, 210, 0.98), rgba(244, 200, 120, 0.7) 58%, rgba(219, 152, 73, 0.24) 80%);
+}
+
+.tree {
+    position: absolute;
+    bottom: 16%;
+    left: 13%;
+    width: 190px;
+    height: 260px;
+}
+
+.tree-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
     width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #FCEB9E 0%, #FF1744 100%);
-    opacity: 0.32;
+    height: 170px;
+    background: linear-gradient(180deg, #7d4a2a, #442613);
+    transform: translateX(-50%);
+    border-radius: 12px;
 }
 
-.leaf:nth-child(8) {
-    left: 80%;
-    animation: fallSway2 11.5s linear infinite;
-    animation-delay: 1s;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #FF1744 0%, #E8956F 50%, #FCEB9E 100%);
-    opacity: 0.38;
+.tree-crown {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    width: 210px;
+    height: 180px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at 35% 30%, rgba(255, 229, 137, 0.95), rgba(255, 185, 94, 0.84) 35%, rgba(228, 121, 42, 0.72) 68%, rgba(135, 64, 12, 0.16) 85%);
+    border-radius: 50% 50% 48% 48%;
+    filter: blur(0.5px);
 }
 
-@keyframes fall {
-    0% {
-        transform: translateY(-100px) translateX(0) rotate(0deg);
-        opacity: 0.3;
+.tree-crown::before,
+.tree-crown::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 228, 159, 0.92), rgba(255, 167, 67, 0.8), transparent 65%);
+}
+
+.tree-crown::before {
+    width: 130px;
+    height: 110px;
+    top: 18px;
+    left: 14px;
+}
+
+.tree-crown::after {
+    width: 108px;
+    height: 98px;
+    top: 20px;
+    right: 18px;
+}
+
+@media (max-width: 768px) {
+    .hero-landscape::before {
+        left: 50%;
+        width: 220px;
+        height: 220px;
     }
-    10% {
-        opacity: 0.9;
+
+    .hill-back {
+        width: 180%;
+        height: 52%;
     }
-    90% {
-        opacity: 0.9;
+
+    .hill-mid {
+        width: 150%;
+        height: 48%;
     }
-    to {
-        transform: translateY(100vh) translateX(100px) rotate(360deg);
-        opacity: 0;
+
+    .hill-front {
+        width: 140%;
+        height: 42%;
+    }
+
+    .tree {
+        left: 10%;
+        width: 150px;
+        height: 220px;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
     }
 }
 
-@keyframes fallSway1 {
-    0% {
-        transform: translateY(-100px) translateX(0) rotate(0deg);
-        opacity: 0.3;
+@media (max-width: 480px) {
+    .hero-landscape::before {
+        width: 180px;
+        height: 180px;
     }
-    25% {
-        transform: translateY(25vh) translateX(30px) rotate(90deg);
-    }
-    50% {
-        transform: translateY(50vh) translateX(0) rotate(180deg);
-    }
-    75% {
-        transform: translateY(75vh) translateX(-30px) rotate(270deg);
-    }
-    to {
-        transform: translateY(100vh) translateX(0) rotate(360deg);
-        opacity: 0;
+
+    .tree {
+        left: 8%;
+        width: 130px;
+        height: 190px;
     }
 }
 
-@keyframes fallSway2 {
-    0% {
-        transform: translateY(-100px) translateX(0) rotate(0deg);
-        opacity: 0.3;
-    }
-    25% {
-        transform: translateY(25vh) translateX(-40px) rotate(90deg);
-    }
-    50% {
-        transform: translateY(50vh) translateX(10px) rotate(180deg);
-    }
-    75% {
-        transform: translateY(75vh) translateX(-20px) rotate(270deg);
-    }
-    to {
-        transform: translateY(100vh) translateX(0) rotate(360deg);
-        opacity: 0;
-    }
-}
 
 @keyframes subtleWarmGlow {
     0%, 100% {
@@ -487,26 +549,26 @@ body {
 
 .hero-accent {
     position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(156, 39, 176, 0.4) 0%, rgba(255, 23, 68, 0.2) 50%, transparent 70%);
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(255, 241, 214, 0.75) 0%, rgba(255, 198, 120, 0.22) 50%, transparent 70%);
     border-radius: 50%;
-    top: -100px;
-    right: -150px;
-    opacity: 0.7;
+    top: -80px;
+    right: -120px;
+    opacity: 0.6;
     z-index: -1;
-    blur: 100px;
-    animation: accentGlow 3s ease-in-out infinite;
+    filter: blur(14px);
+    animation: accentGlow 4s ease-in-out infinite;
 }
 
 @keyframes accentGlow {
     0%, 100% {
-        opacity: 0.7;
+        opacity: 0.55;
         transform: scale(1);
     }
     50% {
-        opacity: 0.9;
-        transform: scale(1.1);
+        opacity: 0.68;
+        transform: scale(1.07);
     }
 }
 
@@ -1169,5 +1231,26 @@ section {
 }
 
 [data-theme='dark'] .hero::before {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.14) 50%, rgba(0, 0, 0, 0.22) 100%);
 }
+
+[data-theme='dark'] .hero-landscape::before {
+    background: radial-gradient(circle at 35% 30%, rgba(255, 233, 175, 0.28), transparent 65%);
+}
+
+[data-theme='dark'] .hill-back {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 214, 150, 0.7), rgba(203, 146, 84, 0.22) 60%, transparent 80%);
+}
+
+[data-theme='dark'] .hill-mid {
+    background: radial-gradient(circle at 50% 35%, rgba(255, 224, 165, 0.75), rgba(206, 138, 64, 0.42) 58%, transparent 76%);
+}
+
+[data-theme='dark'] .hill-front {
+    background: radial-gradient(circle at 45% 40%, rgba(255, 235, 190, 0.85), rgba(231, 170, 106, 0.68) 58%, rgba(192, 104, 45, 0.24) 80%);
+}
+
+[data-theme='dark'] .tree-crown {
+    background: radial-gradient(circle at 35% 30%, rgba(255, 224, 156, 0.9), rgba(255, 179, 66, 0.68) 35%, rgba(215, 104, 42, 0.56) 68%, rgba(112, 53, 10, 0.16) 85%);
+}
+

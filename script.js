@@ -245,11 +245,25 @@ function updateActiveNav() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('scroll', () => {
+    updateActiveNav();
+    updateLeafParallax();
+});
+
+function updateLeafParallax() {
+    const scrollY = window.scrollY;
+    document.querySelectorAll('.leaf').forEach(leaf => {
+        const depth = leaf.classList.contains('leaf-front') ? 0.12 : leaf.classList.contains('leaf-mid') ? 0.075 : 0.04;
+        const direction = leaf.classList.contains('leaf-front') ? 1 : leaf.classList.contains('leaf-mid') ? -1 : 1;
+        leaf.style.setProperty('--scrollX', `${scrollY * depth * direction}px`);
+    });
+}
+
+// Initialize leaf position
+updateLeafParallax();
 
 // ============================================
 // PROJECT IMAGE CLICK SUPPORT
-// ============================================
 
 document.querySelectorAll('.project-image').forEach(img => {
     img.addEventListener('click', function() {
